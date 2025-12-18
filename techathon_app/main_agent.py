@@ -6,7 +6,7 @@ import time
 from pathlib import Path
 
 # --- IMPORT AGENTS ---
-from agents.sales_agent import RealSalesAgent
+from agents.real_sales_agent import RealSalesAgent
 from agents.tech_agent import RealTechAgent 
 from agents.pricing_agent import RealPricingAgent
 from agents.priority_agent import RealPriorityAgent
@@ -113,34 +113,20 @@ class MainAgent:
         
         # ---------------- STEP 1: REAL SALES AGENT ----------------
         try:
-             print(f"🤖 Calling Sales Agent API on {filename}...")
+             print(f"🤖 Calling Sales Agent (In-Process) on {filename}...")
              
-             import requests
-             # USE ENVIRONMENT VARIABLE FOR FLEXIBLE DEPLOYMENT
-             api_base = os.getenv("BACKEND_API_URL", "http://127.0.0.1:8000")
-             url = f"{api_base}/process-rfp"
-             # Remove trailing slash double issues if present
-             if "//process" in url: url = url.replace("//process", "/process")
+             sales_bot = RealSalesAgent() # Will auto-load settings/keys
+             full_response = sales_bot.process_rfp(filepath, filename)
              
-             with open(filepath, 'rb') as f:
-                 files = {'file': (filename, f, 'application/pdf')}
-                 try:
-                     response = requests.post(url, files=files, timeout=600)
-                     if response.status_code == 200:
-                         actual_sales_data = response.json().get("sales_agent_output", {}) # API returns processed format?
-                         # NOTE: The API returns the FULL JSON structure (wrapper + sales_output).
-                         # We need to handle that.
-                         full_resp = response.json()
-                         if "sales_agent_output" in full_resp:
-                             actual_sales_data = full_resp["sales_agent_output"]
-                         else:
-                             actual_sales_data = full_resp # Fallback
-                             
-                     else:
-                        raise Exception(f"API Error {response.status_code}: {response.text}")
-                        
-                 except requests.exceptions.ConnectionError:
-                     raise Exception("Connection Refused. Is 'python agents/sales_api.py' running?")
+             # Check for explicit errors returned by the agent
+             if "error" in full_response:
+                 raise Exception(full_response["error"])
+
+             # EXTRACT JUST THE SALES OUTPUT PART
+             if "sales_agent_output" in full_response:
+                 actual_sales_data = full_response["sales_agent_output"]
+             else:
+                 actual_sales_data = full_response
 
              # Success! Save data to Central DB
              self.save_to_db_record(

@@ -1,5 +1,569 @@
 [
   {
+    "rfp_unique_id": "RFP-1766070505",
+    "status": "Bid Ready for Review",
+    "is_archived": false,
+    "created_at": "2025-12-18T20:38:25.407752",
+    "local_file_name": "sample rfp 6.pdf",
+    "document_url": "/static/rfp_docs/sample rfp 6.pdf",
+    "processing_stage_tracker": {
+      "sales_agent": "Completed",
+      "tech_agent": "Completed",
+      "pricing_agent": "Completed",
+      "final_review": "Pending"
+    },
+    "sales_agent_output": {
+      "summary": {
+        "client_name": "NATIONAL HIGHWAYS AUTHORITY OF INDIA",
+        "project_title": "Delhi-Mumbai Expressway (Package 4) - Street Lighting System",
+        "tender_ref_no": "NHAI/DME/PKG4/ELECT/2025",
+        "submission_deadline": "2026-02-20T16:00:00Z",
+        "contract_currency": "INR",
+        "emd_amount": 150000.0,
+        "emd_type": "Demand Draft/Bank Guarantee"
+      },
+      "logistics_constraints": {
+        "delivery_location": "Kota Camp Office",
+        "delivery_coordinates": {
+          "lat": 25.18,
+          "lon": 75.83
+        },
+        "distance_from_factory_km": 541.03,
+        "zone_code": "Z-01",
+        "zone_type": "Plains_Highway",
+        "delivery_timeline_days": 90,
+        "unloading_scope": "Contractor Scope",
+        "factory_coordinates": {
+          "lat": 21.1702,
+          "lon": 72.8311
+        }
+      },
+      "commercial_terms": {
+        "payment_terms": "80% on Supply of Material at Site and verification; 10% on Erection/Installation; 10% on Handover/Commissioning",
+        "penalty_clause": "NOT SPECIFIED",
+        "price_basis": "FOR Destination"
+      },
+      "line_items_extracted": [
+        {
+          "lot_id": "L001",
+          "raw_description": "Supply of 1.1kV Grade, 4 Core 16 sq.mm Aluminium Conductor, XLPE Insulated, PVC Sheathed, Galvanized Steel Wire Armoured Cable for Pole Loop wiring. Make: Havells / Polycab",
+          "quantity": 25000,
+          "unit": "Meter",
+          "technical_attributes": {
+            "voltage_grade": "1.1kV",
+            "core_count": 4,
+            "cross_section_sqmm": 16,
+            "conductor_material": "Aluminium",
+            "insulation": "XLPE",
+            "screen": "NOT SPECIFIED",
+            "armour_type": "Galvanized Steel Wire",
+            "sheath": "PVC",
+            "standards": [
+              "IS 7098"
+            ]
+          }
+        },
+        {
+          "lot_id": "L002",
+          "raw_description": "Supply of 1.1kV Grade, 4 Core 25 sq.mm Aluminium Conductor, XLPE Insulated, PVC Sheathed, Galvanized Steel Strip Armoured Cable for Feeder Pillar interconnection.",
+          "quantity": 10000,
+          "unit": "Meter",
+          "technical_attributes": {
+            "voltage_grade": "1.1kV",
+            "core_count": 4,
+            "cross_section_sqmm": 25,
+            "conductor_material": "Aluminium",
+            "insulation": "XLPE",
+            "screen": "NOT SPECIFIED",
+            "armour_type": "Galvanized Steel Strip",
+            "sheath": "PVC",
+            "standards": [
+              "IS 7098"
+            ]
+          }
+        },
+        {
+          "lot_id": "L003",
+          "raw_description": "Supply of 10 sq.mm 4 Core Cu Flexible Cable (Unarmoured)",
+          "quantity": 2000,
+          "unit": "Meter",
+          "technical_attributes": {
+            "voltage_grade": "1.1kV",
+            "core_count": 4,
+            "cross_section_sqmm": 10,
+            "conductor_material": "Copper",
+            "insulation": "NOT SPECIFIED",
+            "screen": "NOT SPECIFIED",
+            "armour_type": "NOT SPECIFIED",
+            "sheath": "NOT SPECIFIED",
+            "standards": [
+              "IS 694"
+            ]
+          }
+        }
+      ]
+    },
+    "tech_agent_output": {
+      "status": "Completed",
+      "matched_line_items": [
+        {
+          "lot_id": "L001",
+          "rfp_description": "Supply of 1.1kV Grade, 4 Core 16 sq.mm Aluminium Conductor, XLPE Insulated, PVC Sheathed, Galvanized Steel Wire Armoured Cable for Pole Loop wiring. Make: Havells / Polycab",
+          "matched_sku_id": "PC-LT-AL-4C-16",
+          "matched_sku_name": "Polycab 1.1kV 4 Core 16sqmm Aluminium Armoured Cable",
+          "match_score": 80.0,
+          "quantity": 25000,
+          "technical_breakdown": [
+            {
+              "spec": "Voltage Grade",
+              "requested": "1.1kV",
+              "actual": "1100V",
+              "status": "Match"
+            },
+            {
+              "spec": "Core Count",
+              "requested": 4,
+              "actual": 4,
+              "status": "Match"
+            },
+            {
+              "spec": "Cross Section Sqmm",
+              "requested": 16,
+              "actual": 16,
+              "status": "Match"
+            },
+            {
+              "spec": "Conductor Material",
+              "requested": "Aluminium",
+              "actual": "Aluminium",
+              "status": "Match"
+            },
+            {
+              "spec": "Insulation",
+              "requested": "XLPE",
+              "actual": "XLPE",
+              "status": "Match"
+            }
+          ],
+          "commercial_ref": {
+            "base_mfg_cost_per_meter": 95.0,
+            "setup_cost": 800.0,
+            "inventory_stock": 1500,
+            "unit_of_measure": "Meter",
+            "currency": "INR"
+          }
+        },
+        {
+          "lot_id": "L002",
+          "rfp_description": "Supply of 1.1kV Grade, 4 Core 25 sq.mm Aluminium Conductor, XLPE Insulated, PVC Sheathed, Galvanized Steel Strip Armoured Cable for Feeder Pillar interconnection.",
+          "matched_sku_id": "PC-LT-AL-4C-25",
+          "matched_sku_name": "Polycab 1.1kV 4 Core 25sqmm Aluminium Armoured Cable",
+          "match_score": 80.0,
+          "quantity": 10000,
+          "technical_breakdown": [
+            {
+              "spec": "Voltage Grade",
+              "requested": "1.1kV",
+              "actual": "1100V",
+              "status": "Match"
+            },
+            {
+              "spec": "Core Count",
+              "requested": 4,
+              "actual": 4,
+              "status": "Match"
+            },
+            {
+              "spec": "Cross Section Sqmm",
+              "requested": 25,
+              "actual": 25,
+              "status": "Match"
+            },
+            {
+              "spec": "Conductor Material",
+              "requested": "Aluminium",
+              "actual": "Aluminium",
+              "status": "Match"
+            },
+            {
+              "spec": "Insulation",
+              "requested": "XLPE",
+              "actual": "XLPE",
+              "status": "Match"
+            }
+          ],
+          "commercial_ref": {
+            "base_mfg_cost_per_meter": 140.0,
+            "setup_cost": 800.0,
+            "inventory_stock": 1200,
+            "unit_of_measure": "Meter",
+            "currency": "INR"
+          }
+        },
+        {
+          "lot_id": "L003",
+          "rfp_description": "Supply of 10 sq.mm 4 Core Cu Flexible Cable (Unarmoured)",
+          "matched_sku_id": "PC-LT-CU-1C-10-RED",
+          "matched_sku_name": "Polycab 1.1kV 1 Core 10sqmm Copper Flexible Cable (Red)",
+          "match_score": 65.0,
+          "quantity": 2000,
+          "technical_breakdown": [
+            {
+              "spec": "Voltage Grade",
+              "requested": "1.1kV",
+              "actual": "1100V",
+              "status": "Match"
+            },
+            {
+              "spec": "Core Count",
+              "requested": 4,
+              "actual": 1,
+              "status": "Mismatch"
+            },
+            {
+              "spec": "Cross Section Sqmm",
+              "requested": 10,
+              "actual": 10,
+              "status": "Match"
+            },
+            {
+              "spec": "Conductor Material",
+              "requested": "Copper",
+              "actual": "Copper (Flexible)",
+              "status": "Match"
+            },
+            {
+              "spec": "Insulation",
+              "requested": "NOT SPECIFIED",
+              "actual": "PVC",
+              "status": "Mismatch"
+            }
+          ],
+          "commercial_ref": {
+            "base_mfg_cost_per_meter": 120.0,
+            "setup_cost": 250.0,
+            "inventory_stock": 8000,
+            "unit_of_measure": "Meter",
+            "currency": "INR"
+          }
+        }
+      ],
+      "competitor_analysis": [
+        {
+          "lot_id": "L001",
+          "competitor": "Gemscab",
+          "risk": "High",
+          "comment": "Direct competitor for PC-LT-AL-4C-16"
+        },
+        {
+          "lot_id": "L001",
+          "competitor": "V-Flow Tech Cables",
+          "risk": "High",
+          "comment": "Direct competitor for PC-LT-AL-4C-16"
+        },
+        {
+          "lot_id": "L002",
+          "competitor": "Nu Power",
+          "risk": "High",
+          "comment": "Direct competitor for PC-LT-AL-4C-25"
+        }
+      ],
+      "competitor_codes": [
+        "Gemscab",
+        "Nu Power",
+        "V-Flow Tech Cables"
+      ],
+      "required_test_codes": [
+        "TEST-RT-001",
+        "TEST-RT-002",
+        "TEST-AT-001",
+        "TEST-AT-003",
+        "TEST-AT-002",
+        "TEST-AT-004"
+      ],
+      "testing_cost_estimate": 107100.0,
+      "compliance_report_html": "<h3>Technical Compliance Matrix</h3><table border='1' style='border-collapse: collapse; width: 100%;'><tr style='background-color: #f2f2f2;'><th>Lot ID</th><th>Requested</th><th>Matched Product</th><th>Score</th><th>Status</th></tr><tr><td>L001</td><td>Supply of 1.1kV Grade, 4 Core 16 sq.mm Aluminium Conductor, XLPE Insulated, PVC Sheathed, Galvanized Steel Wire Armoured Cable for Pole Loop wiring. Make: Havells / Polycab</td><td>Polycab 1.1kV 4 Core 16sqmm Aluminium Armoured Cable</td><td style='color:green; font-weight:bold;'>80.0%</td><td>Deviation</td></tr><tr><td>L002</td><td>Supply of 1.1kV Grade, 4 Core 25 sq.mm Aluminium Conductor, XLPE Insulated, PVC Sheathed, Galvanized Steel Strip Armoured Cable for Feeder Pillar interconnection.</td><td>Polycab 1.1kV 4 Core 25sqmm Aluminium Armoured Cable</td><td style='color:green; font-weight:bold;'>80.0%</td><td>Deviation</td></tr><tr><td>L003</td><td>Supply of 10 sq.mm 4 Core Cu Flexible Cable (Unarmoured)</td><td>Polycab 1.1kV 1 Core 10sqmm Copper Flexible Cable (Red)</td><td style='color:orange; font-weight:bold;'>65.0%</td><td>Deviation</td></tr></table>"
+    },
+    "pricing_agent_output": {
+      "status": "Success",
+      "financial_summary": {
+        "final_bid_value": 4522170,
+        "margin_percentage": "15.0%",
+        "total_cost_base": 3932322,
+        "total_material_cost": 3068382,
+        "total_logistics_cost": 162630,
+        "total_packaging_cost": 444000,
+        "total_testing_cost": 144300,
+        "finance_cost": 113009
+      },
+      "audit_details": {
+        "manufacturing": {
+          "total": 3068382.2,
+          "breakdown": [
+            "   - EC Grade Aluminium (H2/H4 Grade): 0.18 units/m @ 231.00",
+            "   - XLPE Compound (Low Voltage Grade): 0.06 units/m @ 147.90",
+            "   - EC Grade Aluminium (H2/H4 Grade): 0.29 units/m @ 231.00",
+            "   - XLPE Compound (Low Voltage Grade): 0.09 units/m @ 147.90",
+            "   - EC Grade Copper (99.9% Pure): 0.09 units/m (High Volatility Risk +3518)",
+            "   - PVC Compound (Type A - General): 0.02 units/m @ 95.00"
+          ],
+          "formula": "Micro-BOM"
+        },
+        "packaging": {
+          "total": 444000,
+          "breakdown": [
+            "98 Drums Est"
+          ]
+        },
+        "testing": {
+          "total": 144300.0,
+          "breakdown": [
+            "Per Tech Agent Codes"
+          ]
+        },
+        "logistics": {
+          "total": 162630.392,
+          "formula": "(37.00T x 541.03km x 4.5 Rate x 1.0 Zone (Z-01))"
+        },
+        "strategy": {
+          "rationale": [
+            "Credit Cost (90 days): +INR 113009",
+            "Loyalty Discount: -1.5%",
+            "Price War Alert: Gemscab (Aggressive) -> -3% Margin",
+            "Price War Alert: V-Flow Tech Cables (Aggressive) -> -3% Margin",
+            "Market Pressure Buildup (1 extra rivals): -0.5%",
+            "Zone Risk (Plains_Highway): +2.0%"
+          ],
+          "competitor_impact": "-3.5%",
+          "zone_risk": "2.0%"
+        },
+        "simulation": {
+          "min_safe_price": 3527513,
+          "max_profit_price": 3898305,
+          "volatility_risk": "10.5%",
+          "negotiation_script": [
+            "\u26a0\ufe0f Market is Highly Volatile: Suggest locking price in 48hrs.",
+            "   > Reasoning: commodity simulation shows potential 10.5% upside risk.",
+            "\ud83e\udd1d Remind client of Gold/Silver Tier savings applied.",
+            "\ud83d\ude9a Highlight specialized logistics handling for their difficult terrain."
+          ]
+        }
+      },
+      "audit_report_url": "/static/audit_reports/RFP-1766070505_AUDIT.pdf"
+    },
+    "sales_agent_2_output": {
+      "rank": 1,
+      "priority_score": 88.7,
+      "breakdown": {
+        "product_fit": 0.75,
+        "relationship": 0.8,
+        "urgency": 0.29,
+        "p_win_est": 0.78
+      }
+    },
+    "last_updated": "2025-12-18T20:39:08.348723"
+  },
+  {
+    "rfp_unique_id": "RFP-1766070418",
+    "status": "Bid Ready for Review",
+    "is_archived": false,
+    "created_at": "2025-12-18T20:36:58.711141",
+    "local_file_name": "sample rfp 7.pdf",
+    "document_url": "/static/rfp_docs/sample rfp 7.pdf",
+    "processing_stage_tracker": {
+      "sales_agent": "Completed",
+      "tech_agent": "Completed",
+      "pricing_agent": "Completed",
+      "final_review": "Pending"
+    },
+    "sales_agent_output": {
+      "summary": {
+        "client_name": "BHARAT SANCHAR NIGAM LIMITED (BSNL)",
+        "project_title": "Supply of LT Power Cables for 4G Saturation Project",
+        "tender_ref_no": "BSNL/OD/BTS/PWR/2025/11",
+        "submission_deadline": "2025-12-10T13:00:00",
+        "contract_currency": "INR",
+        "emd_amount": "75000.0",
+        "emd_type": "Bank Guarantee/DD"
+      },
+      "logistics_constraints": {
+        "delivery_location": "SDE (Store), Bhubaneswar Central Store, Satya Nagar, Bhubaneswar - 751007",
+        "delivery_coordinates": {
+          "lat": 20.3,
+          "lon": 85.82
+        },
+        "distance_from_factory_km": 1353.83,
+        "zone_code": "Z-04",
+        "zone_type": "Urban_Restricted",
+        "delivery_timeline_days": 45,
+        "unloading_scope": "Client Scope",
+        "factory_coordinates": {
+          "lat": 21.1702,
+          "lon": 72.8311
+        }
+      },
+      "commercial_terms": {
+        "payment_terms": "100% within 60 days of Receipt and Acceptance of Goods (RAG)",
+        "penalty_clause": "0.5% per week, max 10% of PO value",
+        "price_basis": "Inclusive of packing, forwarding, freight, and insurance"
+      },
+      "line_items_extracted": [
+        {
+          "lot_id": "L001",
+          "raw_description": "LT Power Cable, 1100V Grade, 2 Core x 10 sq.mm, Copper Conductor, PVC/XLPE Insulated, Galvanized Steel Wire Armoured, PVC Sheathed. Conforming to IS 1554 Part-1 / IS 7098 Part-1.",
+          "quantity": 8000,
+          "unit": "Mtr",
+          "technical_attributes": {
+            "voltage_grade": "1100V",
+            "core_count": 2,
+            "cross_section_sqmm": 10,
+            "conductor_material": "Copper",
+            "insulation": "PVC/XLPE",
+            "screen": "NOT SPECIFIED",
+            "armour_type": "Galvanized Steel Wire",
+            "sheath": "PVC",
+            "standards": [
+              "IS 1554 Part-1",
+              "IS 7098 Part-1"
+            ]
+          }
+        }
+      ]
+    },
+    "tech_agent_output": {
+      "status": "Completed",
+      "matched_line_items": [
+        {
+          "lot_id": "L001",
+          "rfp_description": "LT Power Cable, 1100V Grade, 2 Core x 10 sq.mm, Copper Conductor, PVC/XLPE Insulated, Galvanized Steel Wire Armoured, PVC Sheathed. Conforming to IS 1554 Part-1 / IS 7098 Part-1.",
+          "matched_sku_id": "PC-LT-CU-4C-6",
+          "matched_sku_name": "Polycab 1.1kV 4 Core 6sqmm Copper Armoured Cable",
+          "match_score": 71.5,
+          "quantity": 8000,
+          "technical_breakdown": [
+            {
+              "spec": "Voltage Grade",
+              "requested": "1100V",
+              "actual": "1100V",
+              "status": "Match"
+            },
+            {
+              "spec": "Core Count",
+              "requested": 2,
+              "actual": 4,
+              "status": "Mismatch"
+            },
+            {
+              "spec": "Cross Section Sqmm",
+              "requested": 10,
+              "actual": 6,
+              "status": "Mismatch"
+            },
+            {
+              "spec": "Conductor Material",
+              "requested": "Copper",
+              "actual": "Copper",
+              "status": "Match"
+            },
+            {
+              "spec": "Insulation",
+              "requested": "PVC/XLPE",
+              "actual": "XLPE",
+              "status": "Mismatch"
+            }
+          ],
+          "commercial_ref": {
+            "base_mfg_cost_per_meter": 220.0,
+            "setup_cost": 500.0,
+            "inventory_stock": 2000,
+            "unit_of_measure": "Meter",
+            "currency": "INR"
+          }
+        }
+      ],
+      "competitor_analysis": [],
+      "competitor_codes": [],
+      "required_test_codes": [
+        "TEST-RT-001",
+        "TEST-RT-002",
+        "TEST-AT-001",
+        "TEST-AT-003",
+        "TEST-AT-002",
+        "TEST-AT-004"
+      ],
+      "testing_cost_estimate": 24150.0,
+      "compliance_report_html": "<h3>Technical Compliance Matrix</h3><table border='1' style='border-collapse: collapse; width: 100%;'><tr style='background-color: #f2f2f2;'><th>Lot ID</th><th>Requested</th><th>Matched Product</th><th>Score</th><th>Status</th></tr><tr><td>L001</td><td>LT Power Cable, 1100V Grade, 2 Core x 10 sq.mm, Copper Conductor, PVC/XLPE Insulated, Galvanized Steel Wire Armoured, PVC Sheathed. Conforming to IS 1554 Part-1 / IS 7098 Part-1.</td><td>Polycab 1.1kV 4 Core 6sqmm Copper Armoured Cable</td><td style='color:orange; font-weight:bold;'>71.5%</td><td>Deviation</td></tr></table>"
+    },
+    "pricing_agent_output": {
+      "status": "Success",
+      "financial_summary": {
+        "final_bid_value": 2789311,
+        "margin_percentage": "19.5%",
+        "total_cost_base": 2334151,
+        "total_material_cost": 2102174,
+        "total_logistics_cost": 81980,
+        "total_packaging_cost": 96000,
+        "total_testing_cost": 31200,
+        "finance_cost": 22796
+      },
+      "audit_details": {
+        "manufacturing": {
+          "total": 2102174.3999999994,
+          "breakdown": [
+            "   - EC Grade Copper (99.9% Pure): 0.22 units/m (High Volatility Risk +34407)",
+            "   - XLPE Compound (Low Voltage Grade): 0.05 units/m @ 147.90"
+          ],
+          "formula": "Micro-BOM"
+        },
+        "packaging": {
+          "total": 96000,
+          "breakdown": [
+            "21 Drums Est"
+          ]
+        },
+        "testing": {
+          "total": 31200.0,
+          "breakdown": [
+            "Per Tech Agent Codes"
+          ]
+        },
+        "logistics": {
+          "total": 81980.608,
+          "formula": "(8.00T x 1353.83km x 4.5 Rate x 1.0 Zone (Z-01))"
+        },
+        "strategy": {
+          "rationale": [
+            "Credit Cost (30 days): +INR 22796",
+            "Logistics Efficiency (Client Unloading): -0.5% Margin",
+            "Zone Risk (Plains_Highway): +2.0%"
+          ],
+          "competitor_impact": "-0.0%",
+          "zone_risk": "2.0%"
+        },
+        "simulation": {
+          "min_safe_price": 2494124,
+          "max_profit_price": 2714242,
+          "volatility_risk": "8.8%",
+          "negotiation_script": [
+            "\ud83d\ude9a Highlight specialized logistics handling for their difficult terrain."
+          ]
+        }
+      },
+      "audit_report_url": "/static/audit_reports/RFP-1766070418_AUDIT.pdf"
+    },
+    "sales_agent_2_output": {
+      "rank": 3,
+      "priority_score": 60.7,
+      "breakdown": {
+        "product_fit": 0.71,
+        "relationship": 0.5,
+        "urgency": 0.0,
+        "p_win_est": 0.61
+      }
+    },
+    "last_updated": "2025-12-18T20:37:30.458993"
+  },
+  {
     "rfp_unique_id": "RFP-1766045391",
     "status": "Bid Ready for Review",
     "is_archived": false,
@@ -1514,7 +2078,7 @@
       "audit_report_url": "/static/audit_reports/RFP-1766045391_AUDIT.pdf"
     },
     "sales_agent_2_output": {
-      "rank": 3,
+      "rank": 4,
       "priority_score": 52.8,
       "breakdown": {
         "product_fit": 0.56,
@@ -1527,7 +2091,7 @@
   },
   {
     "rfp_unique_id": "RFP-1766037844",
-    "status": "Bid Ready for Review",
+    "status": "Technical Analysis Done",
     "is_archived": false,
     "created_at": "2025-12-18T11:34:04.622064",
     "local_file_name": "sample rfp 2.pdf",
@@ -1535,7 +2099,7 @@
     "processing_stage_tracker": {
       "sales_agent": "Completed",
       "tech_agent": "Completed",
-      "pricing_agent": "Completed",
+      "pricing_agent": "Pending",
       "final_review": "Pending"
     },
     "sales_agent_output": {
@@ -2929,24 +3493,24 @@
         }
       ],
       "competitor_codes": [
-        "Beta Wires Ltd",
-        "Havells India",
-        "Bonton Cables",
-        "Theta Cables",
-        "Finolex Cables",
-        "V-Flow Tech Cables",
-        "V-Guard",
         "Gemscab",
+        "Bonton Cables",
+        "V-Flow Tech Cables",
+        "Rho Cables",
+        "Beta Wires Ltd",
+        "Theta Cables",
+        "Havells India",
         "City Electricals",
-        "Rho Cables"
+        "Finolex Cables",
+        "V-Guard"
       ],
       "required_test_codes": [
-        "TEST-AT-002",
         "TEST-RT-001",
         "TEST-RT-002",
-        "TEST-AT-004",
         "TEST-AT-001",
-        "TEST-AT-003"
+        "TEST-AT-003",
+        "TEST-AT-002",
+        "TEST-AT-004"
       ],
       "testing_cost_estimate": 352170.0,
       "compliance_report_html": "<h3>Technical Compliance Matrix</h3><table border='1' style='border-collapse: collapse; width: 100%;'><tr style='background-color: #f2f2f2;'><th>Lot ID</th><th>Requested</th><th>Matched Product</th><th>Score</th><th>Status</th></tr><tr><td>L001</td><td>70 sq mm Cable, 3.5 Core XLPE armoured Cable Al</td><td>Polycab 1.1kV 3.5 Core 70sqmm Aluminium Armoured Cable</td><td style='color:orange; font-weight:bold;'>62.5%</td><td>Deviation</td></tr><tr><td>L002</td><td>50 sq mm Cable, 3.5 Core XLPE armoured Cable Al</td><td>Polycab 1.1kV 3.5 Core 50sqmm Aluminium Armoured Cable</td><td style='color:orange; font-weight:bold;'>62.5%</td><td>Deviation</td></tr><tr><td>L003</td><td>35 sq mm Cable, 3.5 Core XLPE armoured Al</td><td>Polycab 1.1kV 3.5 Core 35sqmm Aluminium Armoured Cable</td><td style='color:orange; font-weight:bold;'>62.5%</td><td>Deviation</td></tr><tr><td>L004</td><td>25 sq mm Cable, 3.5 Core XLPE armoured Al</td><td>Polycab 1.1kV 3.5 Core 25sqmm Aluminium Armoured Cable</td><td style='color:orange; font-weight:bold;'>62.5%</td><td>Deviation</td></tr><tr><td>L005</td><td>4 Core XLPE Cable 16 Sq mm Al armored</td><td>Polycab 1.1kV 4 Core 16sqmm Aluminium Armoured Cable</td><td style='color:orange; font-weight:bold;'>62.5%</td><td>Deviation</td></tr><tr><td>L006</td><td>4 Core XLPE Cable 10 Sq mm Al armored</td><td>Polycab 1.1kV 4 Core 16sqmm Aluminium Armoured Cable</td><td style='color:orange; font-weight:bold;'>53.5%</td><td>Deviation</td></tr><tr><td>L007</td><td>4 Core PVC Cable 6 Sq mm Cu</td><td>Polycab 1.1kV 4 Core 6sqmm Copper Armoured Cable</td><td style='color:orange; font-weight:bold;'>52.5%</td><td>Deviation</td></tr><tr><td>L008</td><td>3 Core PVC Cable 6 Sq mm Cu</td><td>Polycab 1.1kV 3 Core 6sqmm Copper Armoured Cable</td><td style='color:orange; font-weight:bold;'>52.5%</td><td>Deviation</td></tr><tr><td>L009</td><td>25 Sq mm Cu single core cable Black</td><td>Polycab 1.1kV 1 Core 25sqmm Copper Flexible Cable (Red)</td><td style='color:orange; font-weight:bold;'>52.5%</td><td>Deviation</td></tr><tr><td>L010</td><td>25 Sq mm Cu single core cable Red</td><td>Polycab 1.1kV 1 Core 25sqmm Copper Flexible Cable (Red)</td><td style='color:orange; font-weight:bold;'>52.5%</td><td>Deviation</td></tr><tr><td>L011</td><td>16 Sq mm Cu single core cable Red</td><td>Polycab 1.1kV 1 Core 16sqmm Copper Flexible Cable (Red)</td><td style='color:orange; font-weight:bold;'>52.5%</td><td>Deviation</td></tr><tr><td>L012</td><td>16 Sq mm Cu single core cable Black</td><td>Polycab 1.1kV 1 Core 16sqmm Copper Flexible Cable (Red)</td><td style='color:orange; font-weight:bold;'>52.5%</td><td>Deviation</td></tr><tr><td>L013</td><td>Power cable Red 10 Sqmm Cu Single Core</td><td>Polycab 1.1kV 1 Core 10sqmm Copper Flexible Cable (Red)</td><td style='color:orange; font-weight:bold;'>52.5%</td><td>Deviation</td></tr><tr><td>L014</td><td>Power cable Black 10 Sqmm Cu Single Core</td><td>Polycab 1.1kV 1 Core 10sqmm Copper Flexible Cable (Red)</td><td style='color:orange; font-weight:bold;'>52.5%</td><td>Deviation</td></tr><tr><td>L015</td><td>Power cable Red 4 Sqmm Cu Single Core</td><td>Polycab Copper Wire 4 sqmm</td><td style='color:orange; font-weight:bold;'>52.5%</td><td>Deviation</td></tr><tr><td>L016</td><td>Power cable Black 4 Sqmm Cu Single Core</td><td>Polycab Copper Wire 4 sqmm</td><td style='color:orange; font-weight:bold;'>52.5%</td><td>Deviation</td></tr><tr><td>L017</td><td>Earthing Cable 35 Sqmm Cu Single core (Green)</td><td>Polycab 1.1kV 1 Core 25sqmm Copper Flexible Cable (Red)</td><td style='color:red; font-weight:bold;'>48.2%</td><td>Deviation</td></tr><tr><td>L018</td><td>Earthing Cable 6 Sqmm Cu Single core (Green)</td><td>Polycab Copper Wire 4 sqmm</td><td style='color:red; font-weight:bold;'>47.5%</td><td>Deviation</td></tr></table>"
@@ -3048,7 +3612,7 @@
       "audit_report_url": "/static/audit_reports/RFP-1766037844_AUDIT.pdf"
     },
     "sales_agent_2_output": {
-      "rank": 4,
+      "rank": 5,
       "priority_score": 52.4,
       "breakdown": {
         "product_fit": 0.55,
@@ -3331,370 +3895,5 @@
       }
     },
     "last_updated": "2025-12-17T19:10:02.817893"
-  },
-  {
-    "rfp_unique_id": "RFP-1765967039",
-    "status": "Bid Ready for Review",
-    "is_archived": false,
-    "created_at": "2025-12-17T15:53:59.645570",
-    "local_file_name": "sample rfp 6.pdf",
-    "document_url": "/static/rfp_docs/sample rfp 6.pdf",
-    "processing_stage_tracker": {
-      "sales_agent": "Completed",
-      "tech_agent": "Completed",
-      "pricing_agent": "Completed",
-      "final_review": "Pending"
-    },
-    "sales_agent_output": {
-      "summary": {
-        "client_name": "NATIONAL HIGHWAYS AUTHORITY OF INDIA",
-        "project_title": "Delhi-Mumbai Expressway (Package 4) - Street Lighting System",
-        "tender_ref_no": "NHAI/DME/PKG4/ELECT/2025",
-        "submission_deadline": "2026-02-20T16:00:00",
-        "contract_currency": "INR",
-        "emd_amount": 150000.0,
-        "emd_type": "Bank Guarantee"
-      },
-      "logistics_constraints": {
-        "delivery_location": "Kota Camp Office",
-        "delivery_coordinates": {
-          "lat": 25.18,
-          "lon": 75.83
-        },
-        "distance_from_factory_km": 541.03,
-        "zone_code": "Z-01",
-        "zone_type": "Plains_Highway",
-        "delivery_timeline_days": 90,
-        "unloading_scope": "Contractor Scope",
-        "factory_coordinates": {
-          "lat": 21.1702,
-          "lon": 72.8311
-        }
-      },
-      "commercial_terms": {
-        "payment_terms": "80% on Supply of Material at Site and verification; 10% on Erection/Installation; 10% on Handover/Commissioning",
-        "penalty_clause": "Not Specified",
-        "price_basis": "FOR Site"
-      },
-      "line_items_extracted": [
-        {
-          "lot_id": "L001",
-          "raw_description": "Supply of 1.1kV Grade, 4 Core 16 sq.mm Aluminium Conductor, XLPE Insulated, PVC Sheathed, Galvanized Steel Wire Armoured Cable for Pole Loop wiring. Make: Havells / Polycab",
-          "quantity": 25000,
-          "unit": "Mtr",
-          "technical_attributes": {
-            "voltage_grade": "1.1kV",
-            "core_count": 4,
-            "cross_section_sqmm": 16,
-            "conductor_material": "Aluminium",
-            "insulation": "XLPE",
-            "screen": "None",
-            "armour_type": "Galvanized Steel Wire",
-            "sheath": "PVC",
-            "standards": [
-              "IS 7098",
-              "IS 694"
-            ]
-          }
-        },
-        {
-          "lot_id": "L002",
-          "raw_description": "Supply of 1.1kV Grade, 4 Core 25 sq.mm Aluminium Conductor, XLPE Insulated, PVC Sheathed, Galvanized Steel Strip Armoured Cable for Feeder Pillar interconnection.",
-          "quantity": 10000,
-          "unit": "Mtr",
-          "technical_attributes": {
-            "voltage_grade": "1.1kV",
-            "core_count": 4,
-            "cross_section_sqmm": 25,
-            "conductor_material": "Aluminium",
-            "insulation": "XLPE",
-            "screen": "None",
-            "armour_type": "Galvanized Steel Strip",
-            "sheath": "PVC",
-            "standards": [
-              "IS 7098",
-              "IS 694"
-            ]
-          }
-        },
-        {
-          "lot_id": "L003",
-          "raw_description": "Supply of 10 sq.mm 4 Core Cu Flexible Cable (Unarmoured)",
-          "quantity": 2000,
-          "unit": "Mtr",
-          "technical_attributes": {
-            "voltage_grade": "1.1kV",
-            "core_count": 4,
-            "cross_section_sqmm": 10,
-            "conductor_material": "Copper",
-            "insulation": "Not Specified",
-            "screen": "None",
-            "armour_type": "Unarmoured",
-            "sheath": "Not Specified",
-            "standards": [
-              "IS 7098",
-              "IS 694"
-            ]
-          }
-        }
-      ]
-    },
-    "tech_agent_output": {
-      "status": "Completed",
-      "matched_line_items": [
-        {
-          "lot_id": "L001",
-          "rfp_description": "Supply of 1.1kV Grade, 4 Core 16 sq.mm Aluminium Conductor, XLPE Insulated, PVC Sheathed, Galvanized Steel Wire Armoured Cable for Pole Loop wiring. Make: Havells / Polycab",
-          "matched_sku_id": "PC-LT-AL-4C-16",
-          "matched_sku_name": "Polycab 1.1kV 4 Core 16sqmm Aluminium Armoured Cable",
-          "match_score": 80.0,
-          "quantity": 25000,
-          "technical_breakdown": [
-            {
-              "spec": "Voltage Grade",
-              "requested": "1.1kV",
-              "actual": "1100V",
-              "status": "Match"
-            },
-            {
-              "spec": "Core Count",
-              "requested": 4,
-              "actual": 4,
-              "status": "Match"
-            },
-            {
-              "spec": "Cross Section Sqmm",
-              "requested": 16,
-              "actual": 16,
-              "status": "Match"
-            },
-            {
-              "spec": "Conductor Material",
-              "requested": "Aluminium",
-              "actual": "Aluminium",
-              "status": "Match"
-            },
-            {
-              "spec": "Insulation",
-              "requested": "XLPE",
-              "actual": "XLPE",
-              "status": "Match"
-            }
-          ],
-          "commercial_ref": {
-            "base_mfg_cost_per_meter": 95.0,
-            "setup_cost": 800.0,
-            "inventory_stock": 1500,
-            "unit_of_measure": "Meter",
-            "currency": "INR"
-          }
-        },
-        {
-          "lot_id": "L002",
-          "rfp_description": "Supply of 1.1kV Grade, 4 Core 25 sq.mm Aluminium Conductor, XLPE Insulated, PVC Sheathed, Galvanized Steel Strip Armoured Cable for Feeder Pillar interconnection.",
-          "matched_sku_id": "PC-LT-AL-4C-25",
-          "matched_sku_name": "Polycab 1.1kV 4 Core 25sqmm Aluminium Armoured Cable",
-          "match_score": 80.0,
-          "quantity": 10000,
-          "technical_breakdown": [
-            {
-              "spec": "Voltage Grade",
-              "requested": "1.1kV",
-              "actual": "1100V",
-              "status": "Match"
-            },
-            {
-              "spec": "Core Count",
-              "requested": 4,
-              "actual": 4,
-              "status": "Match"
-            },
-            {
-              "spec": "Cross Section Sqmm",
-              "requested": 25,
-              "actual": 25,
-              "status": "Match"
-            },
-            {
-              "spec": "Conductor Material",
-              "requested": "Aluminium",
-              "actual": "Aluminium",
-              "status": "Match"
-            },
-            {
-              "spec": "Insulation",
-              "requested": "XLPE",
-              "actual": "XLPE",
-              "status": "Match"
-            }
-          ],
-          "commercial_ref": {
-            "base_mfg_cost_per_meter": 140.0,
-            "setup_cost": 800.0,
-            "inventory_stock": 1200,
-            "unit_of_measure": "Meter",
-            "currency": "INR"
-          }
-        },
-        {
-          "lot_id": "L003",
-          "rfp_description": "Supply of 10 sq.mm 4 Core Cu Flexible Cable (Unarmoured)",
-          "matched_sku_id": "PC-LT-CU-1C-10-RED",
-          "matched_sku_name": "Polycab 1.1kV 1 Core 10sqmm Copper Flexible Cable (Red)",
-          "match_score": 62.5,
-          "quantity": 2000,
-          "technical_breakdown": [
-            {
-              "spec": "Voltage Grade",
-              "requested": "1.1kV",
-              "actual": "1100V",
-              "status": "Match"
-            },
-            {
-              "spec": "Core Count",
-              "requested": 4,
-              "actual": 1,
-              "status": "Mismatch"
-            },
-            {
-              "spec": "Cross Section Sqmm",
-              "requested": 10,
-              "actual": 10,
-              "status": "Match"
-            },
-            {
-              "spec": "Conductor Material",
-              "requested": "Copper",
-              "actual": "Copper (Flexible)",
-              "status": "Match"
-            },
-            {
-              "spec": "Insulation",
-              "requested": "Not Specified",
-              "actual": "PVC",
-              "status": "Mismatch"
-            }
-          ],
-          "commercial_ref": {
-            "base_mfg_cost_per_meter": 120.0,
-            "setup_cost": 250.0,
-            "inventory_stock": 8000,
-            "unit_of_measure": "Meter",
-            "currency": "INR"
-          }
-        }
-      ],
-      "competitor_analysis": [
-        {
-          "lot_id": "L001",
-          "competitor": "Gemscab",
-          "risk": "High",
-          "comment": "Direct competitor for PC-LT-AL-4C-16"
-        },
-        {
-          "lot_id": "L001",
-          "competitor": "V-Flow Tech Cables",
-          "risk": "High",
-          "comment": "Direct competitor for PC-LT-AL-4C-16"
-        },
-        {
-          "lot_id": "L002",
-          "competitor": "Nu Power",
-          "risk": "High",
-          "comment": "Direct competitor for PC-LT-AL-4C-25"
-        }
-      ],
-      "competitor_codes": [
-        "Nu Power",
-        "V-Flow Tech Cables",
-        "Gemscab"
-      ],
-      "required_test_codes": [
-        "TEST-AT-002",
-        "TEST-AT-003",
-        "TEST-RT-002",
-        "TEST-RT-001",
-        "TEST-AT-004",
-        "TEST-AT-001"
-      ],
-      "testing_cost_estimate": 107100.0,
-      "compliance_report_html": "<h3>Technical Compliance Matrix</h3><table border='1' style='border-collapse: collapse; width: 100%;'><tr style='background-color: #f2f2f2;'><th>Lot ID</th><th>Requested</th><th>Matched Product</th><th>Score</th><th>Status</th></tr><tr><td>L001</td><td>Supply of 1.1kV Grade, 4 Core 16 sq.mm Aluminium Conductor, XLPE Insulated, PVC Sheathed, Galvanized Steel Wire Armoured Cable for Pole Loop wiring. Make: Havells / Polycab</td><td>Polycab 1.1kV 4 Core 16sqmm Aluminium Armoured Cable</td><td style='color:green; font-weight:bold;'>80.0%</td><td>Deviation</td></tr><tr><td>L002</td><td>Supply of 1.1kV Grade, 4 Core 25 sq.mm Aluminium Conductor, XLPE Insulated, PVC Sheathed, Galvanized Steel Strip Armoured Cable for Feeder Pillar interconnection.</td><td>Polycab 1.1kV 4 Core 25sqmm Aluminium Armoured Cable</td><td style='color:green; font-weight:bold;'>80.0%</td><td>Deviation</td></tr><tr><td>L003</td><td>Supply of 10 sq.mm 4 Core Cu Flexible Cable (Unarmoured)</td><td>Polycab 1.1kV 1 Core 10sqmm Copper Flexible Cable (Red)</td><td style='color:orange; font-weight:bold;'>62.5%</td><td>Deviation</td></tr></table>"
-    },
-    "pricing_agent_output": {
-      "status": "Success",
-      "financial_summary": {
-        "final_bid_value": 4522170,
-        "margin_percentage": "15.0%",
-        "total_cost_base": 3932322,
-        "total_material_cost": 3068382,
-        "total_logistics_cost": 162630,
-        "total_packaging_cost": 444000,
-        "total_testing_cost": 144300,
-        "finance_cost": 113009
-      },
-      "audit_details": {
-        "manufacturing": {
-          "total": 3068382.2,
-          "breakdown": [
-            "   - EC Grade Aluminium (H2/H4 Grade): 0.18 units/m @ 231.00",
-            "   - XLPE Compound (Low Voltage Grade): 0.06 units/m @ 147.90",
-            "   - EC Grade Aluminium (H2/H4 Grade): 0.29 units/m @ 231.00",
-            "   - XLPE Compound (Low Voltage Grade): 0.09 units/m @ 147.90",
-            "   - EC Grade Copper (99.9% Pure): 0.09 units/m (High Volatility Risk +3518)",
-            "   - PVC Compound (Type A - General): 0.02 units/m @ 95.00"
-          ],
-          "formula": "Micro-BOM"
-        },
-        "packaging": {
-          "total": 444000,
-          "breakdown": [
-            "98 Drums Est"
-          ]
-        },
-        "testing": {
-          "total": 144300.0,
-          "breakdown": [
-            "Per Tech Agent Codes"
-          ]
-        },
-        "logistics": {
-          "total": 162630.392,
-          "formula": "(37.00T x 541.03km x 4.5 Rate x 1.0 Zone (Z-01))"
-        },
-        "strategy": {
-          "rationale": [
-            "Credit Cost (90 days): +INR 113009",
-            "Loyalty Discount: -1.5%",
-            "Price War Alert: V-Flow Tech Cables (Aggressive) -> -3% Margin",
-            "Price War Alert: Gemscab (Aggressive) -> -3% Margin",
-            "Market Pressure Buildup (1 extra rivals): -0.5%",
-            "Zone Risk (Plains_Highway): +2.0%"
-          ],
-          "competitor_impact": "-3.5%",
-          "zone_risk": "2.0%"
-        },
-        "simulation": {
-          "min_safe_price": 3559940,
-          "max_profit_price": 3883641,
-          "volatility_risk": "9.1%",
-          "negotiation_script": [
-            "\ud83e\udd1d Remind client of Gold/Silver Tier savings applied.",
-            "\ud83d\ude9a Highlight specialized logistics handling for their difficult terrain."
-          ]
-        }
-      },
-      "audit_report_url": "/static/audit_reports/RFP-1765967039_AUDIT.pdf"
-    },
-    "sales_agent_2_output": {
-      "rank": 1,
-      "priority_score": 88.2,
-      "breakdown": {
-        "product_fit": 0.74,
-        "relationship": 0.8,
-        "urgency": 0.29,
-        "p_win_est": 0.77
-      }
-    },
-    "last_updated": "2025-12-17T15:55:02.226329"
   }
 ]
