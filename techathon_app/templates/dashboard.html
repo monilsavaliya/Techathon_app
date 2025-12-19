@@ -227,16 +227,16 @@
                                 title="View Details">
                                 <i class="fas fa-eye"></i>
                             </a>
-                            <a href="/archive_rfp/{{ rfp.rfp_unique_id }}"
+                            <button onclick="archiveRFP('{{ rfp.rfp_unique_id }}', this)"
                                 class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-400 hover:text-amber-600 hover:bg-amber-50 hover:shadow-sm transition-all"
                                 title="Archive">
                                 <i class="fas fa-box-archive"></i>
-                            </a>
-                            <a href="/delete_rfp/{{ rfp.rfp_unique_id }}"
+                            </button>
+                            <button onclick="deleteRFP('{{ rfp.rfp_unique_id }}', this)"
                                 class="w-8 h-8 flex items-center justify-center rounded-lg text-slate-400 hover:text-red-600 hover:bg-red-50 hover:shadow-sm transition-all"
-                                onclick="return confirm('Permanently delete this RFP?')" title="Delete">
+                                title="Delete">
                                 <i class="fas fa-trash-alt"></i>
-                            </a>
+                            </button>
                         </div>
                     </td>
                 </tr>
@@ -313,6 +313,70 @@
         });
     });
 
+    // ===== AJAX ACTIONS =====
+    function archiveRFP(rfpId, button) {
+        const row = button.closest('tr');
+        const icon = button.querySelector('i');
+
+        // Animate button
+        icon.classList.add('fa-spin');
+
+        fetch(`/archive_rfp/${rfpId}`)
+            .then(response => {
+                if (response.redirected || response.ok) {
+                    // Success - smoothly remove row
+                    row.style.opacity = '0';
+                    row.style.transform = 'translateX(-20px)';
+                    row.style.transition = 'all 0.3s ease';
+
+                    setTimeout(() => {
+                        row.remove();
+                        console.log(`✅ Archived ${rfpId}`);
+                    }, 300);
+                } else {
+                    throw new Error('Archive failed');
+                }
+            })
+            .catch(err => {
+                console.error('Archive error:', err);
+                icon.classList.remove('fa-spin');
+                alert('Failed to archive RFP');
+            });
+    }
+
+    function deleteRFP(rfpId, button) {
+        if (!confirm(`Permanently delete ${rfpId}?`)) return;
+
+        const row = button.closest('tr');
+        const icon = button.querySelector('i');
+
+        // Animate button
+        icon.classList.add('fa-spin');
+
+        fetch(`/delete_rfp/${rfpId}`)
+            .then(response => {
+                if (response.redirected || response.ok) {
+                    // Success - smoothly remove row with red fade
+                    row.style.backgroundColor = '#fee2e2';
+                    row.style.opacity = '0';
+                    row.style.transform = 'scale(0.95)';
+                    row.style.transition = 'all 0.4s ease';
+
+                    setTimeout(() => {
+                        row.remove();
+                        console.log(`✅ Deleted ${rfpId}`);
+                    }, 400);
+                } else {
+                    throw new Error('Delete failed');
+                }
+            })
+            .catch(err => {
+                console.error('Delete error:', err);
+                icon.classList.remove('fa-spin');
+                alert('Failed to delete RFP');
+            });
+    }
+
     // ===== SMOOTH AJAX AUTO-REFRESH (NO FULL PAGE RELOAD) =====
     function checkForProcessingRFPs() {
         const hasProcessing = Array.from(document.querySelectorAll('span')).some(
@@ -356,18 +420,18 @@
     // Expose refresh function globally for reprocess button
     window.refreshDashboard = refreshDashboard;
 
-    // Auto-refresh if there are processing RFPs
+    // ===== CONTINUOUS AUTO-REFRESH (ALWAYS RUNS) =====
+    console.log('🔄 Auto-refresh enabled: Checking every 5 seconds');
+
+    // Refresh every 5 seconds regardless of status
+    setInterval(() => {
+        refreshDashboard();
+    }, 5000);
+
+    // Show persistent indicator if processing RFPs exist
     if (checkForProcessingRFPs()) {
-        console.log('🔄 Auto-refresh enabled: Checking every 5 seconds');
-
-        setInterval(() => {
-            if (checkForProcessingRFPs()) {
-                refreshDashboard();
-            }
-        }, 5000);
-
-        // Show indicator
         const indicator = document.createElement('div');
+        indicator.id = 'auto-refresh-indicator';
         indicator.className = 'fixed bottom-4 right-4 px-3 py-2 bg-blue-500 text-white text-xs font-bold rounded-lg shadow-lg flex items-center gap-2 z-50';
         indicator.innerHTML = `
             <span class="relative flex h-2 w-2">
@@ -377,6 +441,8 @@
             Auto-updating...
         `;
         document.body.appendChild(indicator);
+
+        // Remove indicator after 10 seconds
         setTimeout(() => indicator.remove(), 10000);
     }
 </script>
