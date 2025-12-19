@@ -448,5 +448,69 @@ def settings():
         with open(SETTINGS_FILE, 'r') as f: config = json.load(f)
     
     return render_template('settings.html', config=config)
+
+# ===== API ENDPOINT: REPROCESS ALL RFPs =====
+@app.route('/api/reprocess_all_rfps', methods=['POST'])
+def api_reprocess_all_rfps():
+    """
+    Background endpoint to re-run Tech, Pricing, and Priority agents 
+    on all active (non-archived) RFPs.
+    """
+    try:
+        db = load_json(CENTRAL_DB)
+        active_rfps = [r for r in db if not r.get('is_archived', False)]
+        
+        processed_count = 0
+        
+        for rfp in active_rfps:
+            rfp_id = rfp.get('rfp_unique_id')
+            
+            # Skip if no sales agent output (can't process without it)
+            if not rfp.get('sales_agent_output'):
+                continue
+            
+            print(f"🔄 Reprocessing {rfp_id}...")
+            
+            # Re-run Tech Agent
+            try:
+                tech_agent = RealTechAgent()
+                tech_output = tech_agent.process_rfp(rfp.get('sales_agent_output', {}))
+                agent.save_to_db_record(rfp_id, "tech_agent_output", tech_output)
+                print(f"  ✅ Tech Agent done")
+            except Exception as e:
+                print(f"  ❌ Tech Agent error: {e}")
+            
+            # Re-run Pricing Agent
+            try:
+                pricing_agent = RealPricingAgent()
+                pricing_output = pricing_agent.process_rfp(
+                    rfp.get('sales_agent_output', {}),
+                    rfp.get('tech_agent_output', {})
+                )
+                agent.save_to_db_record(rfp_id, "pricing_agent_output", pricing_output)
+                print(f"  ✅ Pricing Agent done")
+            except Exception as e:
+                print(f"  ❌ Pricing Agent error: {e}")
+            
+            processed_count += 1
+        
+        # Re-run Priority Agent on all
+        try:
+            priority_agent = RealPriorityAgent()
+            priority_agent.recalculate_all_priorities()
+            print(f"✅ Priority Agent recalculated all")
+        except Exception as e:
+            print(f"❌ Priority Agent error: {e}")
+        
+        return {
+            "success": True,
+            "message": f"Reprocessed {processed_count} active RFPs",
+            "count": processed_count
+        }, 200
+        
+    except Exception as e:
+        print(f"❌ Reprocess API error: {e}")
+        return {"success": False, "error": str(e)}, 500
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
