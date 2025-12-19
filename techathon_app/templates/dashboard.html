@@ -285,6 +285,7 @@
 </div>
 
 <script>
+    // ===== TAB SWITCHING =====
     function switchTab(tab) {
         const active = document.getElementById('active-body');
         const archived = document.getElementById('archived-body');
@@ -302,6 +303,7 @@
         }
     }
 
+    // ===== SEARCH FILTER =====
     document.getElementById('tableSearch').addEventListener('keyup', function () {
         const filter = this.value.toLowerCase();
         document.querySelectorAll('.search-item').forEach(row => {
@@ -310,5 +312,69 @@
             row.style.display = text.includes(filter) ? '' : 'none';
         });
     });
+
+    // ===== AUTO-REFRESH FOR PROCESSING RFPs =====
+    function checkForProcessingRFPs() {
+        // Check if any RFP has "Processing" status
+        const processingStatuses = document.querySelectorAll('span:contains("Processing")');
+        const hasProcessing = Array.from(document.querySelectorAll('span')).some(
+            el => el.textContent.trim() === 'Processing'
+        );
+        
+        return hasProcessing;
+    }
+
+    function autoRefreshDashboard() {
+        // Only auto-refresh if there are RFPs currently processing
+        if (checkForProcessingRFPs()) {
+            console.log('⏰ Auto-refresh: Processing RFPs detected, checking for updates...');
+            
+            // Fetch the current page HTML to check for status changes
+            fetch(window.location.href)
+                .then(response => response.text())
+                .then(html => {
+                    // Parse the HTML response
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    
+                    // Get current and new table bodies
+                    const currentBody = document.getElementById('active-body');
+                    const newBody = doc.getElementById('active-body');
+                    
+                    // Compare HTML content
+                    if (currentBody.innerHTML !== newBody.innerHTML) {
+                        console.log('✅ Status changed! Reloading page...');
+                        // Smoothly reload the page
+                        window.location.reload();
+                    } else {
+                        console.log('⏸️ No changes detected, will check again in 5s');
+                    }
+                })
+                .catch(err => console.error('Auto-refresh error:', err));
+        }
+    }
+
+    // Start auto-refresh cycle if there are processing RFPs
+    if (checkForProcessingRFPs()) {
+        console.log('🔄 Auto-refresh enabled: Will check for updates every 5 seconds');
+        
+        // Run immediately, then every 5 seconds
+        setInterval(autoRefreshDashboard, 5000);
+        
+        // Add visual indicator
+        const indicator = document.createElement('div');
+        indicator.className = 'fixed bottom-4 right-4 px-3 py-2 bg-blue-500 text-white text-xs font-bold rounded-lg shadow-lg flex items-center gap-2';
+        indicator.innerHTML = `
+            <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+            </span>
+            Auto-updating...
+        `;
+        document.body.appendChild(indicator);
+        
+        // Remove indicator after 10 seconds
+        setTimeout(() => indicator.remove(), 10000);
+    }
 </script>
 {% endblock %}
