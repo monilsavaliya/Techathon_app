@@ -474,7 +474,7 @@ def api_reprocess_all_rfps():
             # Re-run Tech Agent
             try:
                 tech_agent = RealTechAgent()
-                tech_output = tech_agent.process_rfp(rfp.get('sales_agent_output', {}))
+                tech_output = tech_agent.process_rfp_data(rfp.get('sales_agent_output', {}))
                 agent.save_to_db_record(rfp_id, "tech_agent_output", tech_output)
                 print(f"  ✅ Tech Agent done")
             except Exception as e:
@@ -483,10 +483,10 @@ def api_reprocess_all_rfps():
             # Re-run Pricing Agent
             try:
                 pricing_agent = RealPricingAgent()
-                pricing_output = pricing_agent.process_rfp(
-                    rfp.get('sales_agent_output', {}),
-                    rfp.get('tech_agent_output', {})
-                )
+                pricing_output = pricing_agent.process_pricing({
+                    'sales_agent_output': rfp.get('sales_agent_output', {}),
+                    'tech_agent_output': rfp.get('tech_agent_output', {})
+                })
                 agent.save_to_db_record(rfp_id, "pricing_agent_output", pricing_output)
                 print(f"  ✅ Pricing Agent done")
             except Exception as e:
